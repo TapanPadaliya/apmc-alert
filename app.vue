@@ -1,3 +1,10 @@
 <template>
-  <div><VitePwaManifest /> <NuxtWelcome /></div>
+  <div>
+    <VitePwaManifest />
+    <div class="layout-parent">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
+  </div>
 </template>

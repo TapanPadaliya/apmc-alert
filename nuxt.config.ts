@@ -3,6 +3,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
+  router: {
+    // middleware: "auth",
+  },
+  plugins: ["~/plugins/sso.client.js"],
   modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt"],
   pwa: {
     manifest: {
