@@ -1,5 +1,5 @@
 <template>
-  <div><GoogleLogin :callback="callback" /></div>
+  <div>Home page</div>
 </template>
 <script setup>
 import { decodeCredential } from "vue3-google-login";

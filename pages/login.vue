@@ -1,18 +1,25 @@
 <!-- pages/login.vue -->
 <template>
-  <div>
-    <h1>Login</h1>
-    <form @submit.prevent="login">
+  <div
+    class="flex w-full h-full my-10 items-center justify-center flex-col space-y-2"
+  >
+    <h1 class="text-2xl font-bold mb-10">Login</h1>
+    <form
+      @submit.prevent="login"
+      class="flex flex-col items-center justify-center p-4 space-y-3 border rounded-md"
+    >
       <div>{{ errorMessage }}</div>
       <input v-model="username" type="text" placeholder="Username" />
       <input v-model="password" type="password" placeholder="Password" />
-      <button type="submit">Login</button>
+      <button type="submit" class="border p-2 m-2">Login</button>
     </form>
+    <GoogleLogin :callback="callback" />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { decodeCredential } from "vue3-google-login";
 import axios from "axios";
 
 const username = ref("");
@@ -32,5 +39,10 @@ const login = async () => {
     // errorMessage.value = "Invalid credentials";
     console.log(error);
   }
+};
+const callback = (response) => {
+  console.log("Handle the response", response);
+  const userData = decodeCredential(response.credential);
+  console.log("userData", userData);
 };
 </script>

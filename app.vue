@@ -2,9 +2,7 @@
   <div>
     <VitePwaManifest />
     <div class="layout-parent">
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
+      <NuxtLayout />
     </div>
   </div>
 </template>

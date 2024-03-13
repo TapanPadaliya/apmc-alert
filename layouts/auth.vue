@@ -2,7 +2,7 @@
 <template>
   <div>
     <p>Auth Layout</p>
-    <slot></slot>
+    <NuxtPage />
   </div>
 </template>
 
