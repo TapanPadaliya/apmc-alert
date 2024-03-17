@@ -20,6 +20,6 @@
 const router = useRouter();
 const logout = () => {
   localStorage.clear();
-  router.push("/");
+  router.push("/login");
 };
 </script>

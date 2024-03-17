@@ -1,19 +1,9 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
   const token = localStorage.getItem("token");
-
-  if (from.name == "login") {
-    if (token) {
-      console.log("Token Found navigate to deshboard");
-
-      // return navigateTo("/hello");
-    }
-  } else {
-    if (token) {
-      // Do api call and check for token
-      console.log("Token :", token);
-    } else {
-      // return navigateTo("/login");
-      console.log("from");
-    }
+  if (to.name !== "login" && !token) {
+    return navigateTo("/login");
+  }
+  if (to.name === "login" && token) {
+    return navigateTo("/");
   }
 });
