@@ -1,7 +1,7 @@
 <!-- layouts/auth.vue -->
 <template>
   <div>
-    <p>Auth Layout</p>
+    <AuthHeader />
     <NuxtPage />
   </div>
 </template>

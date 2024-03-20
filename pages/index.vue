@@ -2,8 +2,14 @@
   <div class="flex items-center justify-center bg-gray-100 h-full">
     <div class="w-full h-full flex items-center justify-center">
       <div class="container">
-        <Section class="w-full">
+        <Section>
           <div>Add + [WIP]</div>
+        </Section>
+        <Section>
+          <div>Selected Filter</div>
+        </Section>
+        <Section>
+          <div>Selected Filter 2</div>
         </Section>
       </div>
     </div>

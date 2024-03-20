@@ -3,7 +3,7 @@
   <div
     class="flex w-full h-full my-10 items-center justify-center flex-col space-y-2"
   >
-    <h1 class="text-2xl font-bold mb-10">Login</h1>
+    <h1 class="text-2xl font-bold mb-5 text-black">Login With Google</h1>
     <GoogleLogin :callback="callback" />
   </div>
 </template>

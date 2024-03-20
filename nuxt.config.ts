@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     manifest: {
       name: "Nuxt3 PWA Test",
       short_name: "Nuxt3 PWA",
+      theme_color: "#ffffff",
       description: "Testing Nuxt3 PWA",
       icons: [
         {
@@ -62,6 +63,11 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: true,
       type: "module",
+    },
+  },
+  runtimeConfig: {
+    public: {
+      API_ENDPOINT: process.env.API_ENDPOINT || "",
     },
   },
 });

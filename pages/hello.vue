@@ -1,3 +1,3 @@
 <template>
-  <div>Hello User {{ $nuxt.isOffline }}</div>
+  <div>Hello User</div>
 </template>
