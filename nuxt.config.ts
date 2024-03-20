@@ -2,12 +2,12 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: false,
+  ssr: true,
   router: {
     // middleware: "auth",
   },
-  plugins: ["~/plugins/sso.client.js"],
   modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt"],
+  plugins: ["~/plugins/sso.client.js", "~/plugins/vayu-vue.client.js"],
   pwa: {
     manifest: {
       name: "Nuxt3 PWA Test",
