@@ -7,7 +7,7 @@
         <VyButton
           label="Copy Text"
           class="button--success button--solid button--md border p-6"
-          @click="copyText()"
+          @click="registerUser()"
         ></VyButton>
       </div>
 
