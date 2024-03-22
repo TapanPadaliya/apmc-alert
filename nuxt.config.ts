@@ -7,7 +7,11 @@ export default defineNuxtConfig({
   // middleware: "auth",
   // },
   modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt"],
-  plugins: ["~/plugins/sso.client.js", "~/plugins/vayu-vue.client.js"],
+  plugins: [
+    "~/plugins/sso.client.js",
+    "~/plugins/vayu-vue.client.js",
+    "~/plugins/vee-validate.js",
+  ],
   pwa: {
     manifest: {
       name: "Nuxt3 PWA Test",
