@@ -3,8 +3,9 @@
   <div
     class="flex w-full h-full my-10 items-center justify-center flex-col space-y-2"
   >
-    <h1 class="text-2xl font-bold mb-5 text-black">Login With Google</h1>
+    <h1 class="text-2xl font-bold mb-5 text-black">{{ $t('login.with_google') }}</h1>
     <GoogleLogin :callback="callback" />
+
     <!-- Register Detail Modal -->
     <ModalRegisterDetail>
       <template #body>
@@ -179,6 +180,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+const { locale } = useI18n();
 import axios from "axios";
 import { decodeCredential } from "vue3-google-login";
 const runtimeConfig = useRuntimeConfig();

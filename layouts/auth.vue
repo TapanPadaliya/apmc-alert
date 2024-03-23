@@ -1,8 +1,10 @@
 <!-- layouts/auth.vue -->
 <template>
   <div>
-    <AuthHeader />
-    <NuxtPage />
+    <ClientOnly>
+      <AuthHeader />
+      <NuxtPage />
+    </ClientOnly>
   </div>
 </template>
 

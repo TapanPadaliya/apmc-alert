@@ -2,7 +2,9 @@
   <div>
     <Header />
     <div>
-      <NuxtPage />
+      <ClientOnly>
+        <NuxtPage />
+      </ClientOnly>
     </div>
   </div>
 </template>

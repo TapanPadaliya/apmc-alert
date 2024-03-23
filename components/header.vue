@@ -49,6 +49,7 @@
 </template>
 <script setup>
 const router = useRouter();
+const { $global } = useNuxtApp();
 
 const showUserInfo = () => {
   console.log("Open User info Modal");
@@ -61,7 +62,7 @@ const logout = () => {
 };
 
 const changelanguage = () => {
-  console.log("Open Change Language Modal");
+  $global.$vayu.modal.open("lang-switch");
 };
 
 const openInfoModal = () => {

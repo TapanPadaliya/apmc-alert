@@ -28,8 +28,10 @@
   </div>
 </template>
 <script setup>
+const { $global } = useNuxtApp();
 const changelanguage = () => {
-  console.log("Open Change Language Modal");
+  $global.$vayu.modal.open("lang-switch");
+  console.log("click", $global.$vayu.modal.open('langswitch'));
 };
 const openInfoModal = () => {
   console.log("Open openInfoModal Modal");

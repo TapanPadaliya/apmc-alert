@@ -2,16 +2,49 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: false,
+  ssr: true,
   // router: {
   // middleware: "auth",
   // },
-  modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt", "@nuxtjs/i18n"],
   plugins: [
     "~/plugins/sso.client.js",
+    "~/plugins/server.js",
     "~/plugins/vayu-vue.client.js",
     "~/plugins/vee-validate.js",
   ],
+
+  // I18n Config
+  i18n: {
+    lazy: true,
+    langDir: "locales",
+    strategy: "no_prefix",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        file: "en.js",
+      },
+      {
+        code: "gj",
+        name: "Gujarati",
+        file: "gj.js",
+      },
+      {
+        code: "hi",
+        name: "Hindi",
+        file: "hi.js",
+      },
+    ],
+    defaultLocale: "en",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "locale_",
+      redirectOn: "root",
+    },
+  },
+
+  // PWA App Options
   pwa: {
     manifest: {
       name: "Nuxt3 PWA Test",
@@ -69,9 +102,12 @@ export default defineNuxtConfig({
       type: "module",
     },
   },
+
+  // Run Time Providers
   runtimeConfig: {
     public: {
       API_ENDPOINT: process.env.API_ENDPOINT || "",
+      APP_VERSION: process.env.APP_VERSION || "",
     },
   },
 });

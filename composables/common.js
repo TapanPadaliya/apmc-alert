@@ -1,7 +1,5 @@
-import { version } from "../package.json";
-
 export const getVersion = () => {
-  console.log("version", version);
-  return version;
+  const runtimeConfig = useRuntimeConfig();
+  return runtimeConfig.public.APP_VERSION;
 };
 export const dummyComposable = () => {};

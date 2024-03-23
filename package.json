@@ -1,7 +1,6 @@
 {
   "name": "apmc-alert",
   "private": true,
-  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
@@ -20,6 +19,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.8",
+    "@nuxtjs/i18n": "^8.2.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@vite-pwa/nuxt": "^0.6.0",
     "nuxt": "^3.10.3",
