@@ -55,7 +55,8 @@ const showUserInfo = () => {
 };
 
 const logout = () => {
-  localStorage.clear();
+  const token = useCookie("auth_");
+  token.value = null;
   router.push("/login");
 };
 

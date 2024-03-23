@@ -1,5 +1,6 @@
-import { Field, ErrorMessage, Form } from "vee-validate";
 import { defineRule } from "vee-validate";
+import { Field, ErrorMessage, Form } from "vee-validate";
+
 import {
   required,
   email,
@@ -23,7 +24,12 @@ export default defineNuxtPlugin((nuxtApp) => {
   defineRule("is", is);
   defineRule("url", url);
   defineRule("confirmed", confirmed);
-
+  defineRule("phone_number", (value) => {
+    if (!/^\d{1,10}$/.test(value)) {
+      return "The phone number must be a numeric value with a maximum of 10 digits";
+    }
+    return true;
+  });
   // Register Form Components
   nuxtApp.vueApp.component("VForm", Form);
   nuxtApp.vueApp.component("Field", Field);

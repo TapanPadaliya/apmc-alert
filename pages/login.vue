@@ -67,10 +67,10 @@
               >
                 <span class="mr-2 text-lg">+91</span>
                 <VInput
-                  type="number"
+                  type="text"
                   name="mobile"
                   class="p-2 w-full"
-                  rules="required"
+                  rules="required|phone_number"
                 />
               </div>
               <ErrorMessage
@@ -195,17 +195,16 @@ const first_name = ref(null);
 const last_name = ref(null);
 const email = ref(null);
 
-// On Mounted
-onMounted(() => {
-  $global.$vayu.modal.open("register-detail");
-});
-
 const callback = async (response) => {
   const userData = decodeCredential(response?.credential);
   userDetail.value = userData;
   const splitName = userData?.name.split(" ");
-  first_name.value = splitName[0];
-  last_name.value = splitName[1];
+  if (splitName[0]) {
+    first_name.value = splitName[0];
+  }
+  if (splitName[1]) {
+    last_name.value = splitName[1];
+  }
   email.value = userData?.email;
   if (userData?.email) {
     await axios
@@ -271,6 +270,7 @@ const registerUser = async (detail) => {
     .then((res) => {
       console.log("register response", res);
       // $global.$vayu.modal.close("register-detail");
+      setCookie("auth_", "Fdsfdsfsdfdfs");
       // localStorage.setItem("token", userData?.email);
       // router.push("/");
     })
