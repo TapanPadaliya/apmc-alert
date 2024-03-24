@@ -10,7 +10,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       // Do Nothing
     } else {
       nuxtApp.$i18n.locale.value = "en";
-      useCookie("locale_").value = "en";
+      useCookie("A_locale_").value = "en";
     }
   });
 });

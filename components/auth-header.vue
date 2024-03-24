@@ -9,7 +9,9 @@
         <img
           src="/logo.png"
           class="h-10 w-10 rounded-md border border-white p-1"
-        /><span class="text-white drop-shadow-xl font-chakra-petch">APMC Alert</span>
+        /><span class="text-white drop-shadow-xl font-chakra-petch"
+          >APMC Alert</span
+        >
       </div>
       <div class="flex gap-1 md:gap-2">
         <!-- Language Changer Button -->
@@ -33,7 +35,6 @@
 const { $global } = useNuxtApp();
 const changelanguage = () => {
   $global.$vayu.modal.open("lang-switch");
-  console.log("click", $global.$vayu.modal.open("langswitch"));
 };
 const openInfoModal = () => {
   console.log("Open openInfoModal Modal");
