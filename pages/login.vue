@@ -3,7 +3,9 @@
   <div
     class="flex w-full h-full my-10 items-center justify-center flex-col space-y-2"
   >
-    <h1 class="text-2xl font-bold mb-5 text-black">{{ $t('login.with_google') }}</h1>
+    <h1 class="text-2xl font-bold mb-5 text-black">
+      {{ $t("login.with_google") }}
+    </h1>
     <GoogleLogin :callback="callback" />
 
     <!-- Register Detail Modal -->
@@ -209,24 +211,39 @@ const callback = async (response) => {
   }
   email.value = userData?.email;
   if (userData?.email) {
-    await axios
-      .get(`${runtimeConfig.public.API_ENDPOINT}/auth/login/${userData?.email}`)
-      .then((response) => {
-        console.log("reponmse", response);
-      })
-      .catch((error) => {
-        if (error?.response?.data?.error.includes("not found")) {
-          $global.$vayu.modal.open("register-detail");
-        } else {
-          $global.$vayu.notify({
-            port: "toast",
-            title: error?.response?.data?.error || "Something Went Wrong!",
-            duration: 2500,
-            state: "danger",
-          });
-        }
-      });
+    loginUser(userData);
   }
+};
+
+// Login user
+const loginUser = async (userData) => {
+  await axios
+    .get(`${runtimeConfig.public.API_ENDPOINT}/auth/login/${userData?.email}`)
+    .then((response) => {
+      if (response?.data?.success) {
+        const authCookie = useCookie("A_auth_");
+        authCookie.value = response?.data?.token;
+        const userEmail = useCookie("A_userEmail_");
+        userEmail.value = userData?.email;
+        $global.$vayu.modal.close("register-detail");
+        isLoadingRegister.value = false;
+        router.push("/");
+      }
+    })
+    .catch((error) => {
+      if (error?.response?.data?.error.includes("not found")) {
+        $global.$vayu.modal.open("register-detail");
+      } else if (error?.response?.data?.error) {
+        $global.$vayu.notify({
+          port: "toast",
+          title: error?.response?.data?.error || "Something Went Wrong!",
+          duration: 2500,
+          state: "danger",
+        });
+      } else {
+        console.error("UnCaught Error While Login : ", error);
+      }
+    });
 };
 
 // Register User
@@ -270,11 +287,15 @@ const registerUser = async (detail) => {
       }
     )
     .then((res) => {
-      console.log("register response", res);
-      // $global.$vayu.modal.close("register-detail");
-      setCookie("auth_", "Fdsfdsfsdfdfs");
-      // localStorage.setItem("token", userData?.email);
-      // router.push("/");
+      if (res?.data?.success == true) {
+        $global.$vayu.notify({
+          port: "toast",
+          title: res?.data?.data,
+          duration: 3000,
+          state: "success",
+        });
+        loginUser({ email: email.value });
+      }
     })
     .catch((error) => {
       if (error?.response?.data?.error) {

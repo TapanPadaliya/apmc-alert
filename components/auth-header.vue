@@ -3,11 +3,13 @@
     class="header flex w-full items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400"
   >
     <div class="flex items-center justify-between container md:mx-6 p-2">
-      <div class="text-2xl font-semibold flex text-white items-center gap-2">
+      <div
+        class="text-xl md:text-2xl font-semibold flex text-white items-center gap-2"
+      >
         <img
           src="/logo.png"
-          class="h-10 w-10 rounded-md border border-indigo-500 p-1"
-        /><span class="text-indigo-800">APMC Alert</span>
+          class="h-10 w-10 rounded-md border border-white p-1"
+        /><span class="text-white drop-shadow-xl font-chakra-petch">APMC Alert</span>
       </div>
       <div class="flex gap-1 md:gap-2">
         <!-- Language Changer Button -->
@@ -31,7 +33,7 @@
 const { $global } = useNuxtApp();
 const changelanguage = () => {
   $global.$vayu.modal.open("lang-switch");
-  console.log("click", $global.$vayu.modal.open('langswitch'));
+  console.log("click", $global.$vayu.modal.open("langswitch"));
 };
 const openInfoModal = () => {
   console.log("Open openInfoModal Modal");

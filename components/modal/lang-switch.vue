@@ -2,7 +2,7 @@
   <VyModal
     name="langswitch"
     title="Choose Language"
-    class="bg-white rounded max-w-96 max-h-96 lang-switch"
+    class="bg-white rounded max-w-96 max-h-96 lang-switch pb-8"
   >
     <template #default>
       <div class="flex gap-2 flex-col items-center justify-center h-full">

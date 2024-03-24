@@ -7,7 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       nuxtApp.$i18n.locale.value == "gj" ||
       nuxtApp.$i18n.locale.value == "hi"
     ) {
-      console.log("Google local");
+      // Do Nothing
     } else {
       nuxtApp.$i18n.locale.value = "en";
       useCookie("locale_").value = "en";

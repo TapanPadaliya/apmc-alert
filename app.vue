@@ -8,7 +8,7 @@
       <VyPort
         name="modal"
         has-overlay
-        class="port--center p-40 z-50"
+        class="port--center z-50 items-center"
         enter-active-class="animate__animated animate__faster animate__fadeIn"
         leave-active-class="animate__animated animate__faster animate__fadeOut"
       />
@@ -27,5 +27,6 @@
 body {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  font-family: Jakarta Sans, sans-serif;
 }
 </style>

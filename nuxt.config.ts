@@ -2,17 +2,30 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: true,
-  // router: {
-  // middleware: "auth",
-  // },
-  modules: ["@nuxtjs/tailwindcss", "@vite-pwa/nuxt", "@nuxtjs/i18n"],
+  ssr: false,
+
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@vite-pwa/nuxt",
+    "@nuxtjs/i18n",
+    "@nuxtjs/google-fonts",
+  ],
+
   plugins: [
     "~/plugins/sso.client.js",
     "~/plugins/server.js",
+    "~/plugins/pinia.js",
     "~/plugins/vayu-vue.client.js",
     "~/plugins/vee-validate.js",
   ],
+
+  // Google Fonts
+  googleFonts: {
+    families: {
+      "Chakra+Petch": true,
+      "Jakarta+Sans": true,
+    },
+  },
 
   // I18n Config
   i18n: {

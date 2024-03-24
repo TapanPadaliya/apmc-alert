@@ -12,6 +12,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "chakra-petch": ["Chakra Petch", "sans-serif"],
+        "jakarta-sans": ["Jakarta Sans", "sans-serif"],
+      },
       colors: {
         primary: {
           100: "#FFF0CD",
@@ -78,6 +82,17 @@ module.exports = {
           700: "#9E132B",
           800: "#7F0C2A",
           900: "#690729",
+        },
+        info: {
+          100: "#F6CCE3",
+          200: "#ED9DD1",
+          300: "#C963AE",
+          400: "#933683",
+          500: "#4C0C47",
+          600: "#400841",
+          700: "#380034",
+          800: "#24032C",
+          900: "#1A0224",
         },
         black: "#000000",
         white: "#ffffff",
