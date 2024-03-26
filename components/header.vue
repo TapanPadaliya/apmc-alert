@@ -143,7 +143,7 @@ const logout = () => {
 };
 
 const changelanguage = () => {
-  $global.$vayu.modal.open("lang-switch");
+  $global.$vayu.modal.open("langswitch");
 };
 
 const openInfoModal = () => {

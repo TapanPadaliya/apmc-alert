@@ -34,7 +34,7 @@
 <script setup>
 const { $global } = useNuxtApp();
 const changelanguage = () => {
-  $global.$vayu.modal.open("lang-switch");
+  $global.$vayu.modal.open("langswitch");
 };
 const openInfoModal = () => {
   console.log("Open openInfoModal Modal");
